@@ -9,12 +9,14 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
+    // MARK: - IBOutlet
     @IBOutlet var firstnameLabel: UILabel!
     @IBOutlet var lastnameLabel: UILabel!
     @IBOutlet var usernameLabel: UILabel!
     
     var user: User?
     
+    // MARK: - Ovveride Func
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,20 +28,11 @@ class ProfileViewController: UIViewController {
             firstnameLabel.text = userProfile.firstname
             lastnameLabel.text = userProfile.lastname
         }
-        
-        let profileDetails = UIBarButtonItem(title: "More >",
-                                             style: .done ,
-                                             target: self,
-                                             action: #selector(profileDetailsFunc))
-        
-        self.navigationItem.rightBarButtonItem = profileDetails
-        
     }
     
-
-    @objc private func profileDetailsFunc() {
-        print("Click")
+    // Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let profileDetailsVC = segue.destination as? ProfileDetailViewController else { return }
+        profileDetailsVC.user = user
     }
-
-
 }

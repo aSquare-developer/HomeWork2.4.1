@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		756B8387272EE07000A7A0AA /* ProfileDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756B8386272EE06F00A7A0AA /* ProfileDetailViewController.swift */; };
 		75F90959272DD184004E72A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F90958272DD184004E72A2 /* AppDelegate.swift */; };
 		75F9095B272DD184004E72A2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F9095A272DD184004E72A2 /* SceneDelegate.swift */; };
 		75F90960272DD184004E72A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75F9095E272DD184004E72A2 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		756B8386272EE06F00A7A0AA /* ProfileDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailViewController.swift; sourceTree = "<group>"; };
 		75F90955272DD184004E72A2 /* HomeWork2.4.1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeWork2.4.1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75F90958272DD184004E72A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75F9095A272DD184004E72A2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				75F90971272DD9DB004E72A2 /* LoginViewController.swift */,
 				75F90975272DDC2F004E72A2 /* WelcomeViewController.swift */,
 				75F90977272DDC4E004E72A2 /* ProfileViewController.swift */,
+				756B8386272EE06F00A7A0AA /* ProfileDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 				75F9097C272DE681004E72A2 /* User.swift in Sources */,
 				75F90978272DDC4E004E72A2 /* ProfileViewController.swift in Sources */,
 				75F90959272DD184004E72A2 /* AppDelegate.swift in Sources */,
+				756B8387272EE07000A7A0AA /* ProfileDetailViewController.swift in Sources */,
 				75F9095B272DD184004E72A2 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

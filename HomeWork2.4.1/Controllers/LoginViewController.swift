@@ -20,6 +20,9 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
     }
     
     // MARK: - Navigation
@@ -29,13 +32,19 @@ class LoginViewController: UIViewController {
         guard let viewControllers = tabBarController.viewControllers else { return }
         
         for viewController in viewControllers {
-            guard let welcomeVC = viewController as? WelcomeViewController else { return }
-            welcomeVC.username = user
             
-            if let navigationVC = viewController as? UINavigationController {
-                let profileVC = navigationVC.topViewController as! ProfileViewController
+            switch viewController {
+            case is WelcomeViewController:
+                guard let welcomeVC = viewController as? WelcomeViewController else { return }
+                welcomeVC.user = user
+            case is UINavigationController:
+                guard let navigationVC = viewController as? UINavigationController else { return }
+                guard let profileVC = navigationVC.topViewController as? ProfileViewController else { return }
                 profileVC.user = user
+            default:
+                break
             }
+            
         }
         
     }
@@ -62,6 +71,19 @@ class LoginViewController: UIViewController {
         passwordTextField.text = ""
     }
     
+    // MARK: - @OBJC Private Func
+    @objc private func keyboardWillShow(notification: NSNotification) {
+        
+        guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+            return
+        }
+        
+        self.view.frame.origin.y = 0 - keyboardSize.height / 2
+    }
+    
+    @objc private func keyboardWillHide() {
+        self.view.frame.origin.y = 0
+    }
     
 }
 // MARK: - UIViewController extension
